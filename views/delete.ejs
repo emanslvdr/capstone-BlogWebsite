@@ -1,0 +1,9 @@
+<%- include("partials/header") %>
+    <h2>Edit or Delete Posts</h2>
+    <div class="container">
+        <form action="/edit/<%= postIndex%>" method="POST">
+            <textarea name="content" rows="4" cols="50" required><%= origPost.content %></textarea><br>
+            <button type="submit">Update Post</button>
+        </form>
+    </div>
+    <%- include("partials/footer") %>

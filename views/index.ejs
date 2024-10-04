@@ -1,0 +1,28 @@
+<%- include("partials/header") %>
+    <div class="container text-center">
+        <h1>My Blog!</h1>
+
+        <% if (locals.post) { %>
+            <ul>
+                <% posts.forEach(function(item, index) { %>
+                    <div class="container text-center">
+                        <div class="row">
+                            <p id="">
+                                <%= `${index + 1}. ${item.content}`%>
+                            </p>
+                            <form action="/edit/<%= item.uid %>" method="GET" style="display:inline;">
+                                <button type="submit">Edit</button>
+                            </form>
+                            <form action="/delete/<%= item.uid %>" method="POST" style="display:inline;">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <% }) %>
+            </ul>
+            <% }else{ %>
+                <p>No post to display.</p>
+                <% } %>
+    </div>
+
+    <%- include("partials/footer") %>
